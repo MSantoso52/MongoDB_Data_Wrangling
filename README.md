@@ -22,3 +22,10 @@ To follow along with this project, you will need:
     data = json.load(f)
 
   collection.insert_many(data)
+
+# *Project Flow*
+The project structure is following:
+1. Data Import
+2. Data Observation
+3. Data Cleaning
+4. Insight Generation
