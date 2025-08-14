@@ -81,5 +81,19 @@ The project structure is following:
      qty_not_int_list = list(qty_not_int)
      qty_not_int_list
    - Update None type data & checking the result
+     ```python
+     # Update None data type on payment_method to Cash because the value close to it
+     collection.update_many({'payment_method':None},{'$set':{'payment_method':'Cash'}})
+
+     # Checkinh the result
+     payment = collection.aggregate([
+      {'$group':
+         {'_id':'$payment_method', 'total_price':{'$sum':'$total_price'}}       
+      },
+        {'$sort':{'total_price':-1}}
+     ])
+
+payment_df = pd.DataFrame(payment)
+payment_df
    - Missing value handling & checking the result
 7. Insight Generation
