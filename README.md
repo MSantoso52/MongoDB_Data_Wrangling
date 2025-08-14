@@ -15,3 +15,10 @@ To follow along with this project, you will need:
   ```bash
   pip install pymongo
 - sales_records.json: The JSON data file to be imported.
+  ```python
+  import json
+
+  with open('sale_records.json', 'r') as f:
+    data = json.load(f)
+
+  collection.insert_many(data)
