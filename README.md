@@ -113,6 +113,21 @@ The project structure is following:
      ]
       best_selling = list(collection.aggregate(best_selling_pipeline))
    - Sales distributon by age
-   - Sales distribution ny region
+     ```python
+     age_group_pipeline = [
+        {
+          '$bucket':{
+            'groupBy':'$customer_info.age',
+            'boundaries':[0, 18, 25, 35, 50, 65, 100],
+            'default': 'Other/Unknown',
+            'output':{
+                'total_price':{'$sum':1}
+            }
+        }
+      },
+      {'$sort':{'_id':1}}
+     ]
+     age_group_result = list(collection.aggregate(age_group_pipeline))
+   - Sales distribution by region
    - Status transaction breakdown
    - Payment Method to total sale
