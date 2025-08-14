@@ -34,8 +34,9 @@ The project structure is following:
      with open('sale_records.json','r') as f:
        data = json.load(f)
 
+   - import JSON into mongodb
+     ``` python
      collection.insert_many(data)
-   - import JSON into mongodb 
 3. Data Observation
 4. Data Cleaning
 5. Insight Generation
