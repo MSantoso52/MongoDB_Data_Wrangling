@@ -137,4 +137,13 @@ The project structure is following:
      ]
      region_distribution = list(collection.aggregate(region_distribution_pipeline))
    - Status transaction breakdown
+     ```python
+     status_pipeline = [
+      { '$group':{
+            '_id':'$status', 'total_sale':{'$sum':'$total_price'}
+        }
+      },
+      {'$sort':{'total_sale':-1}}
+     ]
+     status_pipeline_result = collection.aggregate(status_pipeline)
    - Payment Method to total sale
