@@ -15,17 +15,27 @@ To follow along with this project, you will need:
   ```bash
   pip install pymongo
 - sales_records.json: The JSON data file to be imported.
-  ```python
-  import json
-
-  with open('sale_records.json', 'r') as f:
-    data = json.load(f)
-
-  collection.insert_many(data)
-
+  
 # *Project Flow*
 The project structure is following:
 1. Data Import
-2. Data Observation
-3. Data Cleaning
-4. Insight Generation
+   To import the json file into mongodb database there are steps need to be done;
+   - python connection to mongodb database, create database, create collection
+     ```python
+     import pymongo
+
+     conn = pymongo.MongoClient(MONGODB_URI)
+     db = conn[DATABASE_NAME]
+     collection = db[COLLECTION_NAME]
+   - load JSON file
+     ```python
+     import json
+
+     with open('sale_records.json','r') as f:
+       data = json.load(f)
+
+     collection.insert_many(data)
+   - import JSON into mongodb 
+3. Data Observation
+4. Data Cleaning
+5. Insight Generation
