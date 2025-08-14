@@ -115,19 +115,26 @@ The project structure is following:
    - Sales distributon by age
      ```python
      age_group_pipeline = [
-        {
-          '$bucket':{
+        {'$bucket':{
             'groupBy':'$customer_info.age',
             'boundaries':[0, 18, 25, 35, 50, 65, 100],
             'default': 'Other/Unknown',
-            'output':{
-                'total_price':{'$sum':1}
+            'output':{'total_price':{'$sum':1}}
             }
-        }
-      },
-      {'$sort':{'_id':1}}
+       },
+       {'$sort':{'_id':1}}
      ]
      age_group_result = list(collection.aggregate(age_group_pipeline))
    - Sales distribution by region
+     ```python
+     region_distribution_pipeline = [
+      { '$group':{
+            '_id':'$region', 'total_sale':{'$sum':'$total_price'}
+        }
+      },
+      {'$sort':{'total_sale':-1}},
+      {'$limit':5}
+     ]
+     region_distribution = list(collection.aggregate(region_distribution_pipeline))
    - Status transaction breakdown
    - Payment Method to total sale
