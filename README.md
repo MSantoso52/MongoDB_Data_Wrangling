@@ -71,4 +71,15 @@ The project structure is following:
      duplicates_order = list(collection.aggregate(order_id_pipeline))
      duplicates_order
 5. Data Cleaning
-6. Insight Generation
+   - Data type correction & checking the result
+     ```python
+     # data type correction
+     collection.update_many({'quantity':{'$not':{'$type':'int'}}}, [{'$set':{'quantity':{'$toInt':'$quantity'}}}])
+
+     # checking the result
+     qty_not_int = collection.find({'quantity':{'$not':{'$type':'int'}}},{'_id':0, 'order_id':1, 'quantity':1})
+     qty_not_int_list = list(qty_not_int)
+     qty_not_int_list
+   - Update None type data & checking the result
+   - Missing value handling & checking the result
+7. Insight Generation
