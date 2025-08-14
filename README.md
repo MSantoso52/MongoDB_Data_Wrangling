@@ -54,7 +54,27 @@ The project structure is following:
      ```python
      # checking field with None or null value simple way is find distinct value
      collection.disctinct('payment_method')
-     
+
+     # note: same process to region, status     
    - Checking duplicate
+     ```python
+     # In sales order duplicate that not allowed in order_id
+      order_id_pipeline = [
+      {
+        '$group':{
+            '_id':'$order_id',
+            'count':{'$sum':1}
+        }
+        },
+        {
+          '$match':{'count':{'$gt':1}}
+        }
+      ]
+
+     duplicates_order = list(collection.aggregate(order_id_pipeline))
+     duplicates_order
+
+duplicates_order = list(collection.aggregate(order_id_pipeline))
+duplicates_order
 5. Data Cleaning
 6. Insight Generation
