@@ -39,7 +39,15 @@ The project structure is following:
      collection.insert_many(data)
 3. Data Observation
    - Checking result of imported data & schema
+     ```python
+     collection.find().limit(1)
    - Checking inconsistent data type
+     ```python
+     # quanity data type should be int
+     qty_not_int = collection.find({'quantity':{'$not':{'$type':'int'}}},{'_id':0, 'order_id':1, 'quantity':1})
+
+     qty_not_int_df = pd.DataFrame(qty_not_int)
+     qty_not_int_df['quanity'].size
    - Checking missing
    - Checking duplicate
 5. Data Cleaning
