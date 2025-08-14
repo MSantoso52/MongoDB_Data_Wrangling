@@ -85,7 +85,7 @@ The project structure is following:
      # Update None data type on payment_method to Cash because the value close to it
      collection.update_many({'payment_method':None},{'$set':{'payment_method':'Cash'}})
 
-     # Checkinh the result
+     # Checkinh the result ensure None type no longer exist on payment
      payment = collection.aggregate([
       {'$group':
          {'_id':'$payment_method', 'total_price':{'$sum':'$total_price'}}       
@@ -93,7 +93,7 @@ The project structure is following:
         {'$sort':{'total_price':-1}}
      ])
 
-payment_df = pd.DataFrame(payment)
-payment_df
+     payment_df = pd.DataFrame(payment)
+     payment_df
    - Missing value handling & checking the result
 7. Insight Generation
