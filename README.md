@@ -60,11 +60,10 @@ The project structure is following:
      ```python
      # In sales order duplicate that not allowed in order_id
       order_id_pipeline = [
-      {
-        '$group':{
-            '_id':'$order_id',
-            'count':{'$sum':1}
-        }
+        {
+          '$group':{
+            '_id':'$order_id', 'count':{'$sum':1}
+          }
         },
         {
           '$match':{'count':{'$gt':1}}
