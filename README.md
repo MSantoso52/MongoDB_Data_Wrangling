@@ -139,7 +139,7 @@ The project structure is following:
    - Status transaction breakdown
      ```python
      status_pipeline = [
-      { '$group':{
+      {'$group':{
             '_id':'$status', 'total_sale':{'$sum':'$total_price'}
         }
       },
@@ -147,3 +147,12 @@ The project structure is following:
      ]
      status_pipeline_result = collection.aggregate(status_pipeline)
    - Payment Method to total sale
+     ```python
+     payment_method_pipeline = [
+      {'$group':{
+            '_id':'$payment_method', 'total_sale':{'$sum':'$total_price'}
+        }
+      },
+      {'$sort':{'total_sale':-1}}
+     ]
+     payment_method = collection.aggregate(payment_method_pipeline)
