@@ -12,4 +12,6 @@ To follow along with this project, you will need:
   ```bash
   systemctl status mongod 
 - Jupyterlab with pymongo library installed.
+  ```bash
+  pip install pymongo
 - sales_records.json: The JSON data file to be imported.
