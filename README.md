@@ -96,4 +96,23 @@ The project structure is following:
      payment_df = pd.DataFrame(payment)
      payment_df
    - Missing value handling & checking the result
+     ```python
+     # Reshasing note to special_handling to YES/NO & add it for missing field notes
+     collection.update_many({'notes':{'$exists':True}},{'$rename':{'notes':'special_handling'}})
+     collection.update_many({'special_handling':{'$exists':True}},{'$set':{'special_handling':'YES'}})
+     collection.update_many({'special_handling':{'$exists':False}},{'$set':{'special_handling':'NO'}}) 
 7. Insight Generation
+   - Best selling item
+     ```python
+     best_selling_pipeline = [
+       {
+         '$group': {'_id':'$item_name', 'total_price':{'$sum':'$total_price'} }
+       },
+       {'$sort':{'total_price':-1} },
+       {'$limit':5 }    
+     ]
+      best_selling = list(collection.aggregate(best_selling_pipeline))
+   - Sales distributon by age
+   - Sales distribution ny region
+   - Status transaction breakdown
+   - Payment Method to total sale
