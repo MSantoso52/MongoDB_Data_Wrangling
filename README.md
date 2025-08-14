@@ -38,5 +38,9 @@ The project structure is following:
      ``` python
      collection.insert_many(data)
 3. Data Observation
-4. Data Cleaning
-5. Insight Generation
+   - Checking result of imported data & schema
+   - Checking inconsistent data type
+   - Checking missing
+   - Checking duplicate
+5. Data Cleaning
+6. Insight Generation
