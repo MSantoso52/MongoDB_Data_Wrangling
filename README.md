@@ -72,8 +72,5 @@ The project structure is following:
 
      duplicates_order = list(collection.aggregate(order_id_pipeline))
      duplicates_order
-
-duplicates_order = list(collection.aggregate(order_id_pipeline))
-duplicates_order
 5. Data Cleaning
 6. Insight Generation
