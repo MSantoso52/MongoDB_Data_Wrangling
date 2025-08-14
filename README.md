@@ -48,7 +48,13 @@ The project structure is following:
 
      qty_not_int_df = pd.DataFrame(qty_not_int)
      qty_not_int_df['quanity'].size
+
+     # note: same process to price_per_unit (double), total_price (double) 
    - Checking missing
+     ```python
+     # checking field with None or null value simple way is find distinct value
+     collection.disctinct('payment_method')
+     
    - Checking duplicate
 5. Data Cleaning
 6. Insight Generation
