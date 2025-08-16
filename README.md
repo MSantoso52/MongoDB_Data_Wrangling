@@ -8,7 +8,7 @@ workflow for a data engineer working with NoSQL databases.
 
 # *Prerequisites*
 To follow along with this project, you will need:
-- MongoDB: A running instance of a MongoDB server by checking status (linux terminal)
+* MongoDB: A running instance of a MongoDB server by checking status (linux terminal)
   ```bash
   systemctl status mongod 
 - Jupyterlab with pymongo library installed.
