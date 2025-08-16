@@ -6,7 +6,7 @@ to take a raw sales_records.json file, import it into a MongoDB collection, and 
 cleaning, and analysis steps to prepare the data for reporting and insight generation. This project demonstrates a typical
 workflow for a data engineer working with NoSQL databases.
 
-Prerequisites
+# *Prerequisites*
 To follow along with this project, you will need:
 - MongoDB: A running instance of a MongoDB server by checking status (linux terminal)
   ```bash
