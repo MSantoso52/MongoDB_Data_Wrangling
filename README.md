@@ -1,4 +1,5 @@
 # MongoDB_Data_Wrangling
+![A screenshot of the project interface](mongodb_data_wrangling.png)
 # *Overview*
 
 This repository contains a step-by-step guide and example commands for a data wrangling project using MongoDB. The goal is
